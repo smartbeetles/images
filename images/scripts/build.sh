@@ -42,7 +42,7 @@ fi
 ## iterate over and build each Dockerfile
 for file in $(find ${SEARCH_PATH} -type f -name Dockerfile | sort -V); do
     BUILD_DIR="$(dirname "${file}")"
-    IMAGE_TAG="docker.io/smartbeetles/php/$(echo "${BUILD_DIR}" | cut -d/ -f1)"
+    IMAGE_TAG="docker.io/smartbeetles/images/$(echo "${BUILD_DIR}" | cut -d/ -f1)"
     IMAGE_SUFFIX="$(echo "${BUILD_DIR}" | cut -d/ -f2- -s | tr / - | sed 's/^-//')"
 
     ## due to build matrix requirements, magento1 and magento2 specific variants are built in separate invocation
