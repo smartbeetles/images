@@ -1,5 +1,5 @@
 ARG PHP_VERSION
-FROM docker.io/smartbeetles/php-fpm:${PHP_VERSION}
+FROM docker.io/smartbeetles/images/php-fpm:${PHP_VERSION}
 USER root
 
 RUN npm install -g grunt-cli gulp yarn
