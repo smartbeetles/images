@@ -4,8 +4,7 @@ USER root
 
 RUN set -eux \
     && yum install -y php-pecl-xdebug3 \
-    && yum clean all \
-    && rm -rf /var/cache/yum
+    && yum clean all
 
 COPY xdebug3/etc/*.ini /etc/
 COPY xdebug3/etc/php.d/*.ini /etc/php.d/
