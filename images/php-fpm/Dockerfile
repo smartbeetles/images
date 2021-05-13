@@ -11,7 +11,8 @@ ENV MAILHOG_PORT    1025
 
 RUN yum install -y which pv sudo bind-utils python3-pip bash-completion rsync socat oathtool \
         wget ack make gcc gcc-c++ automake autoconf crontabs mariadb \
-    && yum clean all
+    && yum clean all \
+    && rm -rf /var/cache/yum
 
 ENV NODE_VERSION    10
 RUN npm install -g n \
