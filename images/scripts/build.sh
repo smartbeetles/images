@@ -29,13 +29,11 @@ if [[ -z ${SEARCH_PATH} ]]; then
 fi
 
 ## login to docker hub as needed
-if [[ ${PUSH_FLAG} ]]; then
-  if [[ ${DOCKER_USERNAME:-} ]]; then
-    echo "Attempting non-interactive docker login (via provided credentials)"
-    echo "${DOCKER_PASSWORD:-}" | docker login -u "${DOCKER_USERNAME:-}" --password-stdin ${DOCKER_REGISTRY:-docker.io}
-  elif [[ -t 1 ]]; then
-    echo "Attempting interactive docker login (tty)"
-    docker login ${DOCKER_REGISTRY:-docker.io}
+if [[ $PUSH_FLAG ]]; then
+  if [ -t 1 ]; then
+    docker login
+  else
+    echo "${DOCKER_PASSWORD:-}" | docker login -u "${DOCKER_USERNAME:-}" --password-stdin
   fi
 fi
 
