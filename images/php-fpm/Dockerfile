@@ -35,7 +35,7 @@ RUN mkdir -p /tmp/mhsendmail \
     && mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
 
 # Install awscli to support data backfill workflows using S3 storage; segno for QR code generation
-RUN pip3 install awscli segno --no-cache-dir
+#RUN pip3 install awscli segno --no-cache-dir
 
 # Configure www-data user as primary php-fpm user for better local dev experience
 RUN useradd www-data \
