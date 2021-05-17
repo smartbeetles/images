@@ -1,4 +1,4 @@
-ARG PHP_VERSION=
+ARG PHP_VERSION=7.0
 FROM docker.io/smartbeetles/images/php-fpm:${PHP_VERSION}
 USER root
 
