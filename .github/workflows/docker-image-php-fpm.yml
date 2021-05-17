@@ -1,5 +1,7 @@
 name: Docker Image PHP-FPM
 on:
+  schedule:
+    - cron: "0 6 1 * *"   # 4 AM UTC on 1st day of month
   push:
     paths:
       - images/php-fpm/**
