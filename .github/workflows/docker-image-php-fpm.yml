@@ -27,24 +27,6 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-  magento1:
-    name: PHP-FPM ${{ matrix.php_version }} (magento1)
-    runs-on: ubuntu-latest
-    needs: php-fpm
-    strategy:
-      matrix:
-        php_version: ["7.0", "7.1", "7.2", "7.3", "7.4", "8.0"]
-    steps:
-      - uses: actions/checkout@v1
-      - name: Change wrapper permissions
-        run: chmod +x ./images/scripts/build.sh
-      - run: ./images/scripts/build.sh --push "${BUILD_GROUP}"
-        env:
-          BUILD_GROUP: php-fpm/magento1
-          PHP_VERSION: ${{ matrix.php_version }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
   magento2:
     name: PHP-FPM ${{ matrix.php_version }} (magento2)
     runs-on: ubuntu-latest
